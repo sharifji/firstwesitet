@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Home Page</title>
+    <title>SharifBrand - Buy & Sell Everything</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
@@ -16,24 +15,26 @@
         }
         
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
+            --primary-color: #3a77ff;
+            --secondary-color: #002f34;
+            --accent-color: #ffce32;
+            --light-color: #f2f4f5;
+            --dark-color: #002f34;
+            --text-color: #002f34;
+            --gray-color: #777;
         }
         
         body {
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text-color);
+            background-color: var(--light-color);
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .btn {
@@ -42,55 +43,140 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #2a67e6;
             transform: translateY(-2px);
         }
         
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+        
+        .btn-accent:hover {
+            background-color: #e6b92a;
+        }
+        
         .section {
-            padding: 80px 0;
+            padding: 40px 0;
         }
         
         .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-size: 2rem;
             color: var(--dark-color);
         }
         
         /* Header Styles */
         header {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
         
-        header.sticky {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        .top-bar {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .top-links a:hover {
+            color: var(--accent-color);
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .logo-text {
             font-size: 1.8rem;
             font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .logo-text span {
             color: var(--primary-color);
-            text-decoration: none;
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 30px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 7px 15px;
+            cursor: pointer;
         }
         
         .nav-links {
@@ -99,7 +185,7 @@
         }
         
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
         
         .nav-links a {
@@ -107,10 +193,29 @@
             color: var(--dark-color);
             font-weight: 500;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a i {
+            margin-right: 5px;
         }
         
         .nav-links a:hover {
             color: var(--primary-color);
+        }
+        
+        .sell-btn {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .sell-btn:hover {
+            background-color: #e6b92a;
+            color: var(--text-color);
         }
         
         .menu-toggle {
@@ -121,170 +226,190 @@
         
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            padding: 160px 0 60px;
+            background-color: var(--dark-color);
             color: white;
             text-align: center;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        /* Login Options */
-        .login-options {
+        .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
         }
         
-        .login-btn {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
+        /* Categories Section */
+        .categories {
+            background-color: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .category-card h3 {
+            font-size: 1rem;
+        }
+        
+        /* Featured Listings */
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .listing-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
         
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        .listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .google-btn {
-            background-color: #DB4437;
-        }
-        
-        .facebook-btn {
-            background-color: #4267B2;
-        }
-        
-        .login-btn i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Features Section */
-        .features {
-            background-color: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: var(--light-color);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-text h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-image {
+        .listing-image {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
-        .service-image img {
+        .listing-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
         
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
+        .listing-card:hover .listing-image img {
+            transform: scale(1.05);
         }
         
-        .service-content {
-            padding: 20px;
+        .listing-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
         
-        .service-content h3 {
-            margin-bottom: 15px;
+        .listing-content {
+            padding: 15px;
+        }
+        
+        .listing-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .listing-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .listing-location {
+            display: flex;
+            align-items: center;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .listing-location i {
+            margin-right: 5px;
+        }
+        
+        .listing-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--gray-color);
+        }
+        
+        /* How It Works Section */
+        .steps {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            position: relative;
+            padding: 0 20px 20px;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
         }
         
-        /* Testimonials Section */
+        .step-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
         .testimonials {
             background-color: var(--light-color);
         }
@@ -298,13 +423,24 @@
         .testimonial-card {
             background-color: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
         }
         
         .testimonial-author {
@@ -331,121 +467,20 @@
         }
         
         .author-info p {
-            color: #777;
+            color: var(--gray-color);
             font-size: 0.9rem;
         }
         
-        /* Contact Section */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-        }
-        
-        /* Ads Section */
-        .ads-container {
-            background-color: white;
-            padding: 40px 0;
-        }
-        
-        .ads-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: var(--dark-color);
-        }
-        
-        .ads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
-        }
-        
-        .ad-card {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .ad-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .ad-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .ad-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .ad-card:hover .ad-image img {
-            transform: scale(1.05);
-        }
-        
-        .ad-content {
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .ad-content h3 {
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-        
-        .ad-content p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .ad-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--accent-color);
+        /* Call to Action */
+        .cta {
+            background-color: var(--primary-color);
             color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            text-align: center;
+            padding: 60px 0;
         }
         
-        .ad-btn:hover {
-            background-color: #c0392b;
+        .cta h2 {
+            margin-bottom: 20px;
         }
         
         /* Footer */
@@ -457,7 +492,7 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -488,1064 +523,9 @@
         .social-links {
             display: flex;
             gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                flex-direction: column;
-                background-color: white;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 0;
-                padding: 15px 20px;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .login-options {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .login-btn {
-                width: 100%;
-                max-width: 250px;
-                justify-content: center;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Sharif</a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="btn" id="loginBtn">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to Our Website</h1>
-                <p>We provide innovative solutions to grow your business and reach new heights in the digital world.</p>
-                <a href="#contact" class="btn">Get Started</a>
-                
-                <div class="login-options" id="heroLoginOptions" style="display: none;">
-                    <p style="margin: 15px 0 10px;">Or sign in with:</p>
-                    <a href="#" class="login-btn google-btn" id="googleLogin">
-                        <i class="fab fa-google"></i> Google
-                    </a>
-                    <a href="#" class="login-btn facebook-btn" id="facebookLogin">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cartoon Ads Section -->
-    <section class="ads-container">
-        <div class="container">
-            <h2 class="ads-title">Featured Cartoons</h2>
-            <div class="ads-grid">
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cartoon Adventure">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Cartoon Adventure</h3>
-                        <p>Join our heroes in an epic journey through magical lands!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
-                </div>
-                
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Funny Animals">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Funny Animals</h3>
-                        <p>Laugh with our hilarious animal characters in their daily adventures!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
-                </div>
-                
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1634142770141-3d2f00d4468b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Super Heroes">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Super Heroes</h3>
-                        <p>Discover the amazing powers of our cartoon superhero team!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
-                </div>
-                
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Space Explorers">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Space Explorers</h3>
-                        <p>Blast off to exciting adventures across the galaxy!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section features" id="features">
-        <div class="container">
-            <h2 class="section-title">Our Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Fast Performance</h3>
-                    <p>Our solutions are optimized for speed and performance to give your users the best experience.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Secure Solutions</h3>
-                    <p>Security is our top priority. We implement the latest security measures to protect your data.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Easy to Use</h3>
-                    <p>Intuitive interfaces and simple controls make our products accessible to everyone.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>We are a team of passionate professionals</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
-                    <p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <!-- Services will be loaded dynamically by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonials-grid">
-                <!-- Testimonials will be loaded dynamically by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About Us</h3>
-                    <p>We are a creative team dedicated to building amazing digital experiences for our clients.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">SEO</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, City, Country</li>
-                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@example.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> BrandName. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Sticky header on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            header.classList.toggle('sticky', window.scrollY > 0);
-        });
-
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Login button functionality
-        const loginBtn = document.getElementById('loginBtn');
-        const heroLoginOptions = document.getElementById('heroLoginOptions');
-        
-        if (loginBtn && heroLoginOptions) {
-            loginBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                heroLoginOptions.style.display = heroLoginOptions.style.display === 'none' ? 'block' : 'none';
-            });
-        }
-
-        // Google and Facebook login functionality
-        const googleLogin = document.getElementById('googleLogin');
-        const facebookLogin = document.getElementById('facebookLogin');
-        
-        if (googleLogin) {
-            googleLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Google login would be implemented here with Firebase or Google OAuth');
-                // In a real implementation, you would use:
-                // Firebase Authentication or Google OAuth API
-            });
-        }
-        
-        if (facebookLogin) {
-            facebookLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Facebook login would be implemented here with Facebook SDK');
-                // In a real implementation, you would use:
-                // Facebook JavaScript SDK
-            });
-        }
-
-        // Mock API functions for demonstration
-        // In a real application, these would be actual API calls to your backend
-        async function mockApiCall(endpoint, data = null) {
-            // Simulate network delay
-            await new Promise(resolve => setTimeout(resolve, 500));
-            
-            // Mock responses for different endpoints
-            switch(endpoint) {
-                case '/api/contact':
-                    return {
-                        message: 'Thank you for your message! We will get back to you soon.'
-                    };
-                case '/api/testimonials':
-                    return [
-                        {
-                            text: "Working with this team has been a game-changer for our business. Their expertise and dedication are unmatched.",
-                            author: "Sarah Johnson",
-                            role: "CEO, TechSolutions",
-                            image: "https://randomuser.me/api/portraits/women/32.jpg"
-                        },
-                        {
-                            text: "The results exceeded our expectations. We've seen a 300% increase in our online engagement since launching the new platform.",
-                            author: "Michael Chen",
-                            role: "Marketing Director, Global Corp",
-                            image: "https://randomuser.me/api/portraits/men/45.jpg"
-                        },
-                        {
-                            text: "Professional, responsive, and creative. They understood our vision and delivered beyond what we imagined.",
-                            author: "Emma Rodriguez",
-                            role: "Founder, StartupX",
-                            image: "https://randomuser.me/api/portraits/women/68.jpg"
-                        }
-                    ];
-                case '/api/services':
-                    return [
-                        {
-                            title: "Web Development",
-                            description: "Custom websites and web applications tailored to your specific business needs.",
-                            image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        },
-                        {
-                            title: "Mobile Applications",
-                            description: "iOS and Android apps that help you engage with your customers on the go.",
-                            image: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        },
-                        {
-                            title: "Digital Marketing",
-                            description: "Comprehensive digital marketing strategies to boost your online presence.",
-                            image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        }
-                    ];
-                default:
-                    throw new Error('Endpoint not found');
-            }
-        }
-
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const formData = new FormData(contactForm);
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                
-                try {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = 'Sending...';
-                    
-                    // In a real application, you would call your actual API endpoint
-                    // const response = await fetch('/api/contact', {
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'Content-Type': 'application/json'
-                    //     },
-                    //     body: JSON.stringify({
-                    //         name: formData.get('name'),
-                    //         email: formData.get('email'),
-                    //         subject: formData.get('subject'),
-                    //         message: formData.get('message')
-                    //     })
-                    // });
-                    
-                    // For demonstration, we're using the mock API
-                    const response = await mockApiCall('/api/contact', {
-                        name: formData.get('name'),
-                        email: formData.get('email'),
-                        subject: formData.get('subject'),
-                        message: formData.get('message')
-                    });
-                    
-                    alert(response.message);
-                    contactForm.reset();
-                } catch (error) {
-                    alert(error.message || 'Failed to send message. Please try again later.');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                }
-            });
-        }
-
-        // Fetch testimonials dynamically
-        async function loadTestimonials() {
-            try {
-                // In a real application, you would call your actual API endpoint
-                // const response = await fetch('/api/testimonials');
-                // const testimonials = await response.json();
-                
-                // For demonstration, we're using the mock API
-                const testimonials = await mockApiCall('/api/testimonials');
-                
-                const testimonialsGrid = document.querySelector('.testimonials-grid');
-                if (testimonialsGrid) {
-                    testimonialsGrid.innerHTML = testimonials.map(testimonial => `
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">
-                                <p>"${testimonial.text}"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="${testimonial.image}" alt="${testimonial.author}">
-                                </div>
-                                <div class="author-info">
-                                    <h4>${testimonial.author}</h4>
-                                    <p>${testimonial.role}</p>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading testimonials:', error);
-            }
-        }
-
-        // Fetch services dynamically
-        async function loadServices() {
-            try {
-                // In a real application, you would call your actual API endpoint
-                // const response = await fetch('/api/services');
-                // const services = await response.json();
-                
-                // For demonstration, we're using the mock API
-                const services = await mockApiCall('/api/services');
-                
-                const servicesGrid = document.querySelector('.services-grid');
-                if (servicesGrid) {
-                    servicesGrid.innerHTML = services.map(service => `
-                        <div class="service-card">
-                            <div class="service-image">
-                                <img src="${service.image}" alt="${service.title}">
-                            </div>
-                            <div class="service-content">
-                                <h3>${service.title}</h3>
-                                <p>${service.description}</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading services:', error);
-            }
-        }
-
-        // Load dynamic content when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            loadTestimonials();
-            loadServices();
-        });
-    </script>
-</body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Home Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-        }
-        
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        header.sticky {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        
-        /* Login Options */
-        .login-options {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
             margin-top: 20px;
         }
         
-        .login-btn {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .google-btn {
-            background-color: #DB4437;
-        }
-        
-        .facebook-btn {
-            background-color: #4267B2;
-        }
-        
-        .login-btn i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Features Section */
-        .features {
-            background-color: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: var(--light-color);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-text h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-content h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--light-color);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* Contact Section */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-        }
-        
-        /* Ads Section */
-        .ads-container {
-            background-color: white;
-            padding: 40px 0;
-        }
-        
-        .ads-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: var(--dark-color);
-        }
-        
-        .ads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
-        }
-        
-        .ad-card {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .ad-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .ad-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .ad-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .ad-card:hover .ad-image img {
-            transform: scale(1.05);
-        }
-        
-        .ad-content {
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .ad-content h3 {
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-        
-        .ad-content p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .ad-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--accent-color);
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .ad-btn:hover {
-            background-color: #c0392b;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
         .social-links a {
             color: white;
             font-size: 1.2rem;
@@ -1553,7 +533,17 @@
         }
         
         .social-links a:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
+        }
+        
+        .download-app {
+            margin-top: 20px;
+        }
+        
+        .download-app img {
+            height: 40px;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
         
         .footer-bottom {
@@ -1566,258 +556,298 @@
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
+            .search-bar {
+                margin: 0 15px;
             }
             
-            .about-image {
-                order: -1;
+            .nav-links li {
+                margin-left: 15px;
             }
         }
         
         @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            
             .menu-toggle {
                 display: block;
             }
             
+            .search-bar {
+                order: 1;
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
             .nav-links {
-                position: absolute;
-                top: 80px;
-                left: -100%;
+                display: none;
                 width: 100%;
                 flex-direction: column;
-                background-color: white;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease;
+                margin-top: 15px;
             }
             
             .nav-links.active {
-                left: 0;
+                display: flex;
             }
             
             .nav-links li {
                 margin: 0;
-                padding: 15px 20px;
+                padding: 10px 0;
                 border-bottom: 1px solid #eee;
             }
             
+            .hero {
+                padding: 120px 0 40px;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
-            .section {
-                padding: 60px 0;
-            }
-            
-            .login-options {
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .login-btn {
+            .hero-buttons .btn {
                 width: 100%;
                 max-width: 250px;
-                justify-content: center;
+                margin-bottom: 10px;
             }
         }
         
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
+            .logo-text {
+                font-size: 1.5rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
         }
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="welcome-message">
+                Welcome to SharifBrand - Pakistan's largest marketplace
+            </div>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="#"><i class="fas fa-user"></i> My Account</a>
+                <a href="#"><i class="fas fa-heart"></i> Favorites</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">SharifName</a>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="logo-text">Sharif<span>Brand</span></div>
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Find Cars, Mobile Phones and more...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
+                
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="btn" id="loginBtn">Login</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-compass"></i> Explore</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Messages</a></li>
+                    <li><a href="#" class="sell-btn"><i class="fas fa-plus"></i> Sell</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to Our Website</h1>
-                <p>We provide innovative solutions to grow your business and reach new heights in the digital world.</p>
-                <a href="#contact" class="btn">Get Started</a>
-                
-                <div class="login-options" id="heroLoginOptions" style="display: none;">
-                    <p style="margin: 15px 0 10px;">Or sign in with:</p>
-                    <a href="#" class="login-btn google-btn" id="googleLogin">
-                        <i class="fab fa-google"></i> Google
-                    </a>
-                    <a href="#" class="login-btn facebook-btn" id="facebookLogin">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </a>
+            <h1>Buy and Sell Anything in Pakistan</h1>
+            <p>SharifBrand is Pakistan's largest marketplace with thousands of new listings every day. Find what you're looking for or sell your unused items.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn">Browse Listings</a>
+                <a href="#" class="btn btn-accent">Sell an Item</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories">
+        <div class="container">
+            <h2 class="section-title">Popular Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Vehicles</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Phones</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Property</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3>Animals</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <h3>Bikes</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <h3>Furniture</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Books</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Games</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-baby-carriage"></i>
+                    </div>
+                    <h3>Kids Items</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <h3>More</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cartoon Ads Section -->
-    <section class="ads-container">
+    <!-- Featured Listings -->
+    <section class="section">
         <div class="container">
-            <h2 class="ads-title">Featured Cartoons</h2>
-            <div class="ads-grid">
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cartoon Adventure">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Cartoon Adventure</h3>
-                        <p>Join our heroes in an epic journey through magical lands!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
+            <div class="section-title">
+                <h2>Featured Listings</h2>
+                <a href="#" style="float: right; font-size: 1rem; margin-top: 10px;">View All</a>
+            </div>
+            <div class="listings-grid" id="featuredListings">
+                <!-- Listings will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Listings -->
+    <section class="section" style="background-color: #f2f4f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recently Added</h2>
+                <a href="#" style="float: right; font-size: 1rem; margin-top: 10px;">View All</a>
+            </div>
+            <div class="listings-grid" id="recentListings">
+                <!-- Listings will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section steps">
+        <div class="container">
+            <h2 class="section-title">How SharifBrand Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Create an Account</h3>
+                    <p>Sign up for free in just a few seconds using your email or social media accounts.</p>
                 </div>
-                
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Funny Animals">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Funny Animals</h3>
-                        <p>Laugh with our hilarious animal characters in their daily adventures!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Post Your Ad</h3>
+                    <p>List your item with photos, description and price. It takes less than a minute.</p>
                 </div>
-                
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1634142770141-3d2f00d4468b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Super Heroes">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Super Heroes</h3>
-                        <p>Discover the amazing powers of our cartoon superhero team!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Connect with Buyers</h3>
+                    <p>Respond to inquiries and negotiate directly with interested buyers.</p>
                 </div>
-                
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <img src="https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Space Explorers">
-                    </div>
-                    <div class="ad-content">
-                        <h3>Space Explorers</h3>
-                        <p>Blast off to exciting adventures across the galaxy!</p>
-                        <a href="#" class="ad-btn">Watch Now</a>
-                    </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Make the Deal</h3>
+                    <p>Arrange for payment and delivery to complete your transaction safely.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section features" id="features">
-        <div class="container">
-            <h2 class="section-title">Our Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Fast Performance</h3>
-                    <p>Our solutions are optimized for speed and performance to give your users the best experience.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Secure Solutions</h3>
-                    <p>Security is our top priority. We implement the latest security measures to protect your data.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Easy to Use</h3>
-                    <p>Intuitive interfaces and simple controls make our products accessible to everyone.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>We are a team of passionate professionals</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
-                    <p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <!-- Services will be loaded dynamically by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="section testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonials-grid">
-                <!-- Testimonials will be loaded dynamically by JavaScript -->
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonials-grid" id="testimonials">
+                <!-- Testimonials will be loaded by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
+    <!-- Call to Action -->
+    <section class="cta">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+            <h2>Ready to Buy or Sell?</h2>
+            <p>Join thousands of happy users who have found great deals on SharifBrand</p>
+            <div style="margin-top: 30px;">
+                <a href="#" class="btn" style="margin-right: 15px;">Browse Listings</a>
+                <a href="#" class="btn btn-outline">Sell an Item</a>
             </div>
         </div>
     </section>
@@ -1827,46 +857,51 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>About Us</h3>
-                    <p>We are a creative team dedicated to building amazing digital experiences for our clients.</p>
+                    <h3>About SharifBrand</h3>
+                    <p>SharifBrand is Pakistan's largest marketplace connecting buyers and sellers across the country.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>Buy & Sell</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">All Categories</a></li>
+                        <li><a href="#">Vehicles</a></li>
+                        <li><a href="#">Property</a></li>
+                        <li><a href="#">Mobile Phones</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Fashion</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Services</h3>
+                    <h3>Help & Support</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">SEO</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Info</h3>
+                    <h3>Download App</h3>
+                    <div class="download-app">
+                        <a href="#"><img src="https://via.placeholder.com/120x40?text=App+Store" alt="App Store"></a>
+                        <a href="#"><img src="https://via.placeholder.com/120x40?text=Google+Play" alt="Google Play"></a>
+                    </div>
+                    <h3 style="margin-top: 20px;">Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, City, Country</li>
-                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@example.com</li>
+                        <li><i class="fas fa-envelope"></i> info@sharifbrand.com</li>
+                        <li><i class="fas fa-phone"></i> +92 300 1234567</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> BrandName. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear"></span> SharifBrand. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1880,6 +915,179 @@
             navLinks.classList.toggle('active');
         });
         
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mock data for listings
+        const listingsData = [
+            {
+                id: 1,
+                title: "Toyota Corolla 2018 Model",
+                price: "PKR 3,450,000",
+                location: "Lahore, Punjab",
+                image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "2 hours ago",
+                isFeatured: true
+            },
+            {
+                id: 2,
+                title: "iPhone 13 Pro Max 256GB",
+                price: "PKR 185,000",
+                location: "Karachi, Sindh",
+                image: "https://images.unsplash.com/photo-1633891120687-13a836e0c4b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "5 hours ago",
+                isFeatured: true
+            },
+            {
+                id: 3,
+                title: "3 Bed House in DHA Phase 5",
+                price: "PKR 45,000,000",
+                location: "Islamabad",
+                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "1 day ago",
+                isFeatured: true
+            },
+            {
+                id: 4,
+                title: "Dell XPS 15 Laptop",
+                price: "PKR 220,000",
+                location: "Rawalpindi, Punjab",
+                image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "3 days ago",
+                isFeatured: true
+            },
+            {
+                id: 5,
+                title: "Samsung Galaxy S21 Ultra",
+                price: "PKR 150,000",
+                location: "Peshawar, KPK",
+                image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "1 hour ago",
+                isFeatured: false
+            },
+            {
+                id: 6,
+                title: "Yamaha YBR 125 2020 Model",
+                price: "PKR 185,000",
+                location: "Faisalabad, Punjab",
+                image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "6 hours ago",
+                isFeatured: false
+            },
+            {
+                id: 7,
+                title: "Leather Sofa Set",
+                price: "PKR 65,000",
+                location: "Multan, Punjab",
+                image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "2 days ago",
+                isFeatured: false
+            },
+            {
+                id: 8,
+                title: "German Shepherd Puppies",
+                price: "PKR 35,000",
+                location: "Gujranwala, Punjab",
+                image: "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                date: "4 hours ago",
+                isFeatured: false
+            }
+        ];
+
+        // Mock testimonials data
+        const testimonialsData = [
+            {
+                text: "I sold my car within 2 days of posting on SharifBrand. The platform is easy to use and I got a fair price for my vehicle.",
+                author: "Ahmed Khan",
+                role: "Seller from Lahore",
+                image: "https://randomuser.me/api/portraits/men/32.jpg"
+            },
+            {
+                text: "Found my dream apartment through SharifBrand. The process was smooth and the seller was genuine. Highly recommended!",
+                author: "Fatima Ali",
+                role: "Buyer from Karachi",
+                image: "https://randomuser.me/api/portraits/women/44.jpg"
+            },
+            {
+                text: "As a small business owner, SharifBrand has helped me reach customers across Pakistan. The exposure is amazing!",
+                author: "Usman Malik",
+                role: "Business Owner",
+                image: "https://randomuser.me/api/portraits/men/67.jpg"
+            }
+        ];
+
+        // Function to generate listing HTML
+        function generateListingHTML(listing) {
+            return `
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="${listing.image}" alt="${listing.title}">
+                        ${listing.isFeatured ? '<div class="listing-badge">Featured</div>' : ''}
+                    </div>
+                    <div class="listing-content">
+                        <div class="listing-price">${listing.price}</div>
+                        <h3 class="listing-title">${listing.title}</h3>
+                        <div class="listing-location">
+                            <i class="fas fa-map-marker-alt"></i> ${listing.location}
+                        </div>
+                        <div class="listing-meta">
+                            <span><i class="far fa-clock"></i> ${listing.date}</span>
+                            <span><i class="far fa-heart"></i> Save</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to generate testimonial HTML
+        function generateTestimonialHTML(testimonial) {
+            return `
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>${testimonial.text}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="${testimonial.image}" alt="${testimonial.author}">
+                        </div>
+                        <div class="author-info">
+                            <h4>${testimonial.author}</h4>
+                            <p>${testimonial.role}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Load featured listings
+        const featuredListingsContainer = document.getElementById('featuredListings');
+        const featuredListings = listingsData.filter(listing => listing.isFeatured);
+        
+        if (featuredListingsContainer) {
+            featuredListingsContainer.innerHTML = featuredListings.map(listing => 
+                generateListingHTML(listing)
+            ).join('');
+        }
+
+        // Load recent listings
+        const recentListingsContainer = document.getElementById('recentListings');
+        const recentListings = listingsData.filter(listing => !listing.isFeatured);
+        
+        if (recentListingsContainer) {
+            recentListingsContainer.innerHTML = recentListings.map(listing => 
+                generateListingHTML(listing)
+            ).join('');
+        }
+
+        // Load testimonials
+        const testimonialsContainer = document.getElementById('testimonials');
+        
+        if (testimonialsContainer) {
+            testimonialsContainer.innerHTML = testimonialsData.map(testimonial => 
+                generateTestimonialHTML(testimonial)
+            ).join('');
+        }
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1894,221 +1102,6 @@
                 });
             });
         });
-        
-        // Sticky header on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            header.classList.toggle('sticky', window.scrollY > 0);
-        });
-
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Login button functionality
-        const loginBtn = document.getElementById('loginBtn');
-        const heroLoginOptions = document.getElementById('heroLoginOptions');
-        
-        if (loginBtn && heroLoginOptions) {
-            loginBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                heroLoginOptions.style.display = heroLoginOptions.style.display === 'none' ? 'block' : 'none';
-            });
-        }
-
-        // Google and Facebook login functionality
-        const googleLogin = document.getElementById('googleLogin');
-        const facebookLogin = document.getElementById('facebookLogin');
-        
-        if (googleLogin) {
-            googleLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Google login would be implemented here with Firebase or Google OAuth');
-                // In a real implementation, you would use:
-                // Firebase Authentication or Google OAuth API
-            });
-        }
-        
-        if (facebookLogin) {
-            facebookLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Facebook login would be implemented here with Facebook SDK');
-                // In a real implementation, you would use:
-                // Facebook JavaScript SDK
-            });
-        }
-
-        // Mock API functions for demonstration
-        // In a real application, these would be actual API calls to your backend
-        async function mockApiCall(endpoint, data = null) {
-            // Simulate network delay
-            await new Promise(resolve => setTimeout(resolve, 500));
-            
-            // Mock responses for different endpoints
-            switch(endpoint) {
-                case '/api/contact':
-                    return {
-                        message: 'Thank you for your message! We will get back to you soon.'
-                    };
-                case '/api/testimonials':
-                    return [
-                        {
-                            text: "Working with this team has been a game-changer for our business. Their expertise and dedication are unmatched.",
-                            author: "Sarah Johnson",
-                            role: "CEO, TechSolutions",
-                            image: "https://randomuser.me/api/portraits/women/32.jpg"
-                        },
-                        {
-                            text: "The results exceeded our expectations. We've seen a 300% increase in our online engagement since launching the new platform.",
-                            author: "Michael Chen",
-                            role: "Marketing Director, Global Corp",
-                            image: "https://randomuser.me/api/portraits/men/45.jpg"
-                        },
-                        {
-                            text: "Professional, responsive, and creative. They understood our vision and delivered beyond what we imagined.",
-                            author: "Emma Rodriguez",
-                            role: "Founder, StartupX",
-                            image: "https://randomuser.me/api/portraits/women/68.jpg"
-                        }
-                    ];
-                case '/api/services':
-                    return [
-                        {
-                            title: "Web Development",
-                            description: "Custom websites and web applications tailored to your specific business needs.",
-                            image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        },
-                        {
-                            title: "Mobile Applications",
-                            description: "iOS and Android apps that help you engage with your customers on the go.",
-                            image: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        },
-                        {
-                            title: "Digital Marketing",
-                            description: "Comprehensive digital marketing strategies to boost your online presence.",
-                            image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        }
-                    ];
-                default:
-                    throw new Error('Endpoint not found');
-            }
-        }
-
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const formData = new FormData(contactForm);
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                
-                try {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = 'Sending...';
-                    
-                    // In a real application, you would call your actual API endpoint
-                    // const response = await fetch('/api/contact', {
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'Content-Type': 'application/json'
-                    //     },
-                    //     body: JSON.stringify({
-                    //         name: formData.get('name'),
-                    //         email: formData.get('email'),
-                    //         subject: formData.get('subject'),
-                    //         message: formData.get('message')
-                    //     })
-                    // });
-                    
-                    // For demonstration, we're using the mock API
-                    const response = await mockApiCall('/api/contact', {
-                        name: formData.get('name'),
-                        email: formData.get('email'),
-                        subject: formData.get('subject'),
-                        message: formData.get('message')
-                    });
-                    
-                    alert(response.message);
-                    contactForm.reset();
-                } catch (error) {
-                    alert(error.message || 'Failed to send message. Please try again later.');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                }
-            });
-        }
-
-        // Fetch testimonials dynamically
-        async function loadTestimonials() {
-            try {
-                // In a real application, you would call your actual API endpoint
-                // const response = await fetch('/api/testimonials');
-                // const testimonials = await response.json();
-                
-                // For demonstration, we're using the mock API
-                const testimonials = await mockApiCall('/api/testimonials');
-                
-                const testimonialsGrid = document.querySelector('.testimonials-grid');
-                if (testimonialsGrid) {
-                    testimonialsGrid.innerHTML = testimonials.map(testimonial => `
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">
-                                <p>"${testimonial.text}"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="${testimonial.image}" alt="${testimonial.author}">
-                                </div>
-                                <div class="author-info">
-                                    <h4>${testimonial.author}</h4>
-                                    <p>${testimonial.role}</p>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading testimonials:', error);
-            }
-        }
-
-        // Fetch services dynamically
-        async function loadServices() {
-            try {
-                // In a real application, you would call your actual API endpoint
-                // const response = await fetch('/api/services');
-                // const services = await response.json();
-                
-                // For demonstration, we're using the mock API
-                const services = await mockApiCall('/api/services');
-                
-                const servicesGrid = document.querySelector('.services-grid');
-                if (servicesGrid) {
-                    servicesGrid.innerHTML = services.map(service => `
-                        <div class="service-card">
-                            <div class="service-image">
-                                <img src="${service.image}" alt="${service.title}">
-                            </div>
-                            <div class="service-content">
-                                <h3>${service.title}</h3>
-                                <p>${service.description}</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading services:', error);
-            }
-        }
-
-        // Load dynamic content when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            loadTestimonials();
-            loadServices();
-        });
     </script>
 </body>
->>>>>>> d34f96a14abeedaa47dc5370afa0af559a2467a7
 </html>
